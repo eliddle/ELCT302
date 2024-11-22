@@ -1,4 +1,3 @@
-
 #include "mbed.h"
 #include <exception>
 #include <cstdio>
@@ -13,9 +12,9 @@ bool new_steering_update = false; // flag for recalculating steering feedback
 int num_left_landmarks = 0;
 int num_right_landmarks = 0;
 
-float slowKP_steering = 0.075; // proportional gain for when speed is set to slow
-float slowKI_steering = 0.05;
-float slowKD_steering = 0.0001;
+float slowKP_steering = 0.0767; // proportional gain for when speed is set to slow //best 0.076
+float slowKI_steering = 0.0575; //best is ki = 0.055 and kd = 0.001 so far
+float slowKD_steering = 0.000011;
 
 float fastKP_steering = 0.25; // proportional gain for when speed is set to fast
 float fastKI_steering = 0;
@@ -50,8 +49,8 @@ PwmOut servo(D5); // PWM output to servo
 DigitalOut runLED(D7); // indicator LED
 
 // Driving variables
-float slowSpeed = 0.275;
-float fastSpeed = 0.35;
+float slowSpeed = 0.135;
+float fastSpeed = 0.0;
 float targetSpeed = 0;   // Target wheel speed PWM
 float KP_driving = 2;   // Proportional gain
 float KI_driving = 1; //1.674;   // Integral gain
